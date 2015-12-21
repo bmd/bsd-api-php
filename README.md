@@ -24,6 +24,11 @@ $client->setDeferredResultInterval(30);
 $client->setDeferredResultMaxAttempts(10);
 ```
 
+If you want to prevent the library from blocking until a deferred result is resolved, then you can use the following configuration option. In this case, the Guzzle response object will be returned even if the response is a 202 deferral and you will have to handle that deferral yourself (i.e. making subsequent calls to the BSD API to confirm that the results have been processed successfully).
+```
+$client->processDeferredResults(false);
+```
+
 Installation
 ------------
 
