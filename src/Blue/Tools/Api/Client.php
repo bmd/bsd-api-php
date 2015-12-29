@@ -28,36 +28,36 @@ class Client
     //--------------------
 
     /** @var string */
-    private $id;
+    protected $id;
 
     /** @var string */
-    private $baseUrl;
+    protected $baseUrl;
 
     /** @var string */
-    private $secret;
+    protected $secret;
 
     //--------------------
     // Configuration
     //--------------------
 
     /** @var bool */
-    private $processDeferredResults = true;
+    protected $processDeferredResults = true;
 
     /** @var int */
-    private $deferredResultMaxAttempts = 20;
+    protected $deferredResultMaxAttempts = 20;
 
     /** @var int */
-    private $deferredResultInterval = 5;
+    protected $deferredResultInterval = 5;
 
     //--------------------
     // Other internals
     //--------------------
 
     /** @var LoggerInterface */
-    private $logger;
+    protected $logger;
 
     /** @var GuzzleClient */
-    private $guzzleClient;
+    protected $guzzleClient;
 
 
     /**
@@ -149,7 +149,7 @@ class Client
      * @param ResponseInterface $response
      * @return FutureResponse|Response|\GuzzleHttp\Message\ResponseInterface|\GuzzleHttp\Ring\Future\FutureInterface|null
      */
-    private function resolve(ResponseInterface $response)
+    protected function resolve(ResponseInterface $response)
     {
 
         // An HTTP status of 202 indicates that this request was deferred
